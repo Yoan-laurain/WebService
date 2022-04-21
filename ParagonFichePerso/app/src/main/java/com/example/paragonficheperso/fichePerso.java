@@ -2,6 +2,7 @@ package com.example.paragonficheperso;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,27 +14,37 @@ import com.example.paragonficheperso.dao.personnageDao;
 
 public class fichePerso extends AppCompatActivity {
 
-    private TextView nomPerso       = findViewById(R.id.nomPerso);
-    private ImageView imagePerso    = findViewById(R.id.ImagePerso);
-    private TextView descPerso      = findViewById(R.id.DescriptionPersonnage);
-    private Button buttonSuppr      = findViewById(R.id.buttonSupprim);
+    private TextView nomPerso   ;
+    private ImageView imagePerso;
+    private TextView descPerso  ;
+    private Button buttonSuppr  ;
     private personnageDTO perso;
+    private Bundle b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiche_perso);
 
-        perso = (personnageDTO) getIntent().getSerializableExtra("Personnage");
+        nomPerso       = findViewById(R.id.nomPerso);
+        imagePerso    = findViewById(R.id.ImagePerso);
+        descPerso      = findViewById(R.id.DescriptionPersonnage);
+        buttonSuppr      = findViewById(R.id.buttonSupprim);
 
-        nomPerso.setText(perso.getNom());
-        //imagePerso.setImage(perso.geLienImage());
-        descPerso.setText(perso.getDescription());
+        try{
 
-        buttonSuppr.setOnClickListener(view -> personnageDao.SuppprimePerso(this, perso.getId()));
+            perso = (personnageDTO) getIntent().getSerializableExtra("Personnage");
+            System.out.println("Perso apres : " + perso);
 
+            nomPerso.setText(perso.getNom());
+            //imagePerso.setImage(perso.geLienImage());
+            descPerso.setText(perso.getDescription());
 
-
+            buttonSuppr.setOnClickListener(view -> personnageDao.SuppprimePerso(this, perso.getId()));
+        }
+        catch (Exception e ){
+            System.out.println("Erreur : " + e);
+        }
 
     }
 

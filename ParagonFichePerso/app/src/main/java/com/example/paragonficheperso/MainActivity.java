@@ -13,7 +13,9 @@ import android.widget.ListView;
 import com.example.paragonficheperso.dao.personnageDao;
 import com.example.paragonficheperso.dto.personnageDTO;
 import com.example.paragonficheperso.lib.MyAdapter;
+import com.example.paragonficheperso.fichePerso;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,12 +47,15 @@ public class MainActivity extends AppCompatActivity {
             {
                 ArrayList mTitle =new ArrayList() ;
                 ArrayList<Bitmap> images = new ArrayList<>();
+                ArrayList<personnageDTO> ListCharac = new ArrayList<>();
+
 
                 characters.values().forEach(tab ->
                 {
                     mTitle.add( tab.getNom() );
                     //Bitmap img =
                     //images.add(img);
+                    ListCharac.add(tab);
                 });
 
 
@@ -60,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                 listViewPerso.setOnItemClickListener((parent, view, position, id) ->
                 {
-                    OpenPerso(characters.get(position));
+                    OpenPerso(ListCharac.get(position));
                 });
             }
             else
@@ -76,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
     public void OpenPerso( personnageDTO perso )
     {
         Intent NewActivities = new Intent( this, fichePerso.class );
-        //NewActivities.putExtras("Personnage","test");
+        System.out.println("Perso : " + perso);
+        NewActivities.putExtra("Personnage", perso);
         this.startActivity(NewActivities);
     }
 }

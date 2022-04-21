@@ -3,8 +3,10 @@ package com.example.paragonficheperso.dto;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 
-public class personnageDTO
+
+public class personnageDTO implements Serializable
 {
     //------------------------------------------------------------------------------
 
