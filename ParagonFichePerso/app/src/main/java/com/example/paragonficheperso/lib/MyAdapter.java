@@ -29,10 +29,9 @@ public class MyAdapter extends ArrayAdapter
     public MyAdapter (
             Activity context,
             ArrayList<String> title,
-            ArrayList<String> description,
             ArrayList<Bitmap> image,
             int idLayout) {
-        super(context, idLayout, description);
+        super(context, idLayout);
         this.title = title;
         this.image = image;
         this.idLayout = idLayout;
