@@ -11,13 +11,13 @@ import android.widget.Toast;
 
 import com.example.paragonficheperso.dto.personnageDTO;
 import com.example.paragonficheperso.dao.personnageDao;
+import com.squareup.picasso.Picasso;
 
 public class fichePerso extends AppCompatActivity {
 
     private TextView nomPerso   ;
     private ImageView imagePerso;
     private TextView descPerso  ;
-    private Button buttonSuppr  ;
     private personnageDTO perso;
     private Bundle b;
 
@@ -27,20 +27,26 @@ public class fichePerso extends AppCompatActivity {
         setContentView(R.layout.activity_fiche_perso);
 
         nomPerso       = findViewById(R.id.nomPerso);
-        imagePerso    = findViewById(R.id.ImagePerso);
+        imagePerso    = findViewById(R.id.ImagePersonnage);
         descPerso      = findViewById(R.id.DescriptionPersonnage);
-        buttonSuppr      = findViewById(R.id.buttonSupprim);
 
         try{
 
             perso = (personnageDTO) getIntent().getSerializableExtra("Personnage");
-            System.out.println("Perso apres : " + perso);
+            System.out.println("image : " + perso.getLienImage());
+            System.out.println("imageView : " + imagePerso);
 
             nomPerso.setText(perso.getNom());
-            //imagePerso.setImage(perso.geLienImage());
+            try {
+
+                Picasso.with( this ).load(perso.getLienImage()).into(imagePerso);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             descPerso.setText(perso.getDescription());
 
-            buttonSuppr.setOnClickListener(view -> personnageDao.SuppprimePerso(this, perso.getId()));
+            //buttonSuppr.setOnClickListener(view -> personnageDao.SuppprimePerso(this, perso.getId()));
         }
         catch (Exception e ){
             System.out.println("Erreur : " + e);

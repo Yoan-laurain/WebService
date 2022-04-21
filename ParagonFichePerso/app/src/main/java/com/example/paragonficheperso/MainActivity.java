@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             if(characters!=null)
             {
                 ArrayList mTitle =new ArrayList() ;
-                ArrayList<Bitmap> images = new ArrayList<>();
+                ArrayList<String> images = new ArrayList<>();
                 ArrayList<personnageDTO> ListCharac = new ArrayList<>();
 
 
