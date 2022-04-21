@@ -3,11 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Natoshiro/Documents/WebService/ParagonFichePerso/app/src/main/res/drawable/ic_launcher_background.xml" value="0.137" />
         <entry key="..\:/Natoshiro/Documents/WebService/ParagonFichePerso/app/src/main/res/layout/activity_fiche_perso.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/Natoshiro/AndroidStudioProjects/ParagonFichePerso/app/src/main/res/layout/activity_main.xml" value="0.2105978260869565" />
-        <entry key="..\:/Users/Yoan laurain/Desktop/Projets JAVA/WebService/ParagonFichePerso/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Yoan laurain/Desktop/Projets JAVA/WebService/ParagonFichePerso/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/Yoan laurain/Desktop/Projets JAVA/WebService/ParagonFichePerso/app/src/main/res/layout/row.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Yoan laurain/Desktop/Projets JAVA/WebService/ParagonFichePerso/app/src/main/res/xml/network_security_config.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

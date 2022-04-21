@@ -1,9 +1,14 @@
 package com.example.paragonficheperso.dao;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import com.example.paragonficheperso.MainActivity;
 import com.example.paragonficheperso.dto.personnageDTO;
+import com.example.paragonficheperso.fichePerso;
+
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -70,6 +75,44 @@ public class personnageDao
                         e.printStackTrace();
                     }
                 }
+            }
+        });
+    }
+
+    public static void SuppprimePerso(fichePerso myActivity , int idPerso){
+
+        RequestBody formBody = new FormBody.Builder()
+                .add("command", "GetAllCharacters")
+                .add("api_key",MainActivity.API_KEY)
+                .add("idCharacter", String.valueOf(idPerso))
+                .build();
+
+        Request request = new Request.Builder()
+                .url(MainActivity.CONNEXION_API)
+                .post(formBody)
+                .build();
+
+        OkHttpClient client = new OkHttpClient();
+
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+
+            @Override
+            public void onFailure(@NotNull okhttp3.Call call, @NotNull IOException e) {}
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException
+            {
+                String responseStr = Objects.requireNonNull(response.body()).string();
+
+                if ( responseStr.equals("false") )
+                {
+                    myActivity.onResponseDelete(false);
+
+                }
+                else {
+                    myActivity.onResponseDelete(true);
+                }
+
             }
         });
     }
