@@ -1,23 +1,25 @@
 package com.example.paragonficheperso.lib;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.paragonficheperso.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
 
 public class MyAdapter extends ArrayAdapter<String>
 {
 
     // ---------------------------------------------
     private final ArrayList<String> title;
-    private final ArrayList<Bitmap> image;
+    private final ArrayList<String> image;
     private final Activity context;
     private final int idLayout;
     // ---------------------------------------------
@@ -25,7 +27,7 @@ public class MyAdapter extends ArrayAdapter<String>
 
 
     // ---------------------------------------------
-    public MyAdapter (Activity context, ArrayList<String> title, ArrayList<Bitmap> image, int idLayout) {
+    public MyAdapter (Activity context, ArrayList<String> title, ArrayList<String> image, int idLayout) {
         super(context, idLayout);
         this.context = (Activity) context;
         this.title = title;
@@ -51,7 +53,6 @@ public class MyAdapter extends ArrayAdapter<String>
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        System.out.println("ici");
         if(convertView == null)
         {
             LayoutInflater inflater = context.getLayoutInflater();
@@ -59,10 +60,17 @@ public class MyAdapter extends ArrayAdapter<String>
         }
 
         TextView textViewTitle = convertView.findViewById(R.id.Titre);
-        //ImageView imageViewImage = convertView.findViewById(R.id.ImagePerso);
-        System.out.println("msg avec :" + title.get(position));
+        ImageView imageViewImage = convertView.findViewById(R.id.ImagePerso);
         textViewTitle.setText(title.get(position));
-        //imageViewImage.setImageBitmap(image.get(position));
+        
+        try {
+            System.out.println("Essaye : " +image.get(position) );
+
+            Picasso.with( this.context ).load(image.get(position)).into(imageViewImage);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return  convertView;
     }

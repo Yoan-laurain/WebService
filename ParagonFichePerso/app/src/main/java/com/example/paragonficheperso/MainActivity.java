@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     //Bitmap img =
                     //images.add(img);
                     ListCharac.add(tab);
+                    images.add(tab.getLienImage());
                 });
 
 
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                System.out.println("BUG");
                 ListView listViewPerso = findViewById(R.id.ListePerso);
                 MyAdapter adapter = new MyAdapter(this, new ArrayList(), new ArrayList(),R.layout.row);
                 listViewPerso.setAdapter(adapter);

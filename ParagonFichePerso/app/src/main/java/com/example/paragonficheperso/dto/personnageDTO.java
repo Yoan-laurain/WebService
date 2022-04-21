@@ -37,7 +37,7 @@ public class personnageDTO implements Serializable
 
     //------------------------------------------------------------------------------
 
-    public String geLienImage() { return lienImage; }
+    public String getLienImage() { return lienImage; }
 
     public String getNom() { return nom; }
 
