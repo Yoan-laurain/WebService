@@ -44,13 +44,12 @@ public class MainActivity extends AppCompatActivity {
             if(characters!=null)
             {
                 ArrayList mTitle =new ArrayList() ;
-                ArrayList<Bitmap> images = new ArrayList<>();
+                ArrayList<String> images = new ArrayList<>();
 
                 characters.values().forEach(tab ->
                 {
                     mTitle.add( tab.getNom() );
-                    //Bitmap img =
-                    //images.add(img);
+                    images.add(tab.getLienImage());
                 });
 
 
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                System.out.println("BUG");
                 ListView listViewPerso = findViewById(R.id.ListePerso);
                 MyAdapter adapter = new MyAdapter(this, new ArrayList(), new ArrayList(),R.layout.row);
                 listViewPerso.setAdapter(adapter);
