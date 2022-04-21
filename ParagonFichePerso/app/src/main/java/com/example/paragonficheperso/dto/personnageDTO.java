@@ -55,7 +55,7 @@ public class personnageDTO
                 json.getInt("id"),
                 json.getString("nom"),
                 json.getString("lienImage"),
-                json.getString("description")
+                json.getString("descriptionPersonnage")
         );
     }
 }

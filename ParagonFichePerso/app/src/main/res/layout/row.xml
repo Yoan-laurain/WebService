@@ -20,15 +20,14 @@
         >
 
         <TextView
+            android:id="@+id/Titre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Main Title"
-            android:textColor="#000"
-            android:textStyle="bold"
             android:layout_margin="5dp"
+            android:text="Main Title"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:id="@+id/Titre"
-            />
+            android:textStyle="bold" />
 
         <!--so our layout is set-->
 
