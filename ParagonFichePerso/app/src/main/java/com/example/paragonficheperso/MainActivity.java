@@ -23,9 +23,8 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String CONNEXION_API = "http://51.254.96.53:2929/api.php";
+    public final static String CONNEXION_API = "http://api.sudododevelopers.xyz:2525/api.php";
     public final static String API_KEY = "43d24893a0ca4dfdacbbc6f0b3067804";
-
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         personnageDao.GetAllMap(this);
     }
-
 
     public void ResponseCharacters(HashMap<Integer, personnageDTO> characters)
     {
