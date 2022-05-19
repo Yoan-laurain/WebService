@@ -3,7 +3,7 @@ require_once 'dao/param.php';
 require_once 'dao/dBConnex.php';
 require_once 'lib/json.php';
 require_once 'lib/log.php';
-require_once 'lib/CharacterDAO.php';
+require_once 'dao/CharacterDAO.php';
 
 // -------------------------------------------
 // Redirige vers la bonne commande

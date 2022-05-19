@@ -9,7 +9,7 @@ class CharacterDAO
     {
         DBConnex::runQuery(
             "Trying to insert new player",
-            "Sucess  insert new player",
+            "Success  insert new player",
             "Failure  insert new player",
             " INSERT INTO personnages (nom,lienImage,descriptionPersonnage) VALUES (:nom,:lienImage,:descriptionPersonnage)",
             array("nom,lienImage,descriptionPersonnage")
@@ -21,7 +21,7 @@ class CharacterDAO
         
     // -------------------------------------------
 
-    public static function GetAllCharacter()
+    public static function GetAllCharacters()
     {
         DBConnex::runFetchAll
         (
